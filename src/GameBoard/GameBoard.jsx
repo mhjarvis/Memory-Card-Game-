@@ -17,6 +17,23 @@ export default function GameBoard() {
             setGifs([]);
         };
     }, []);
+
+    function shuffle() {
+        let currentIndex = gifs.length;
+        let arr = [...gifs];
+
+        while (currentIndex != 0) {
+            let randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            [arr[currentIndex], arr[randomIndex]] = [
+                arr[randomIndex],
+                arr[currentIndex],
+            ];
+        }
+        setGifs([...arr])
+    }
+
     return (
         <div className="images-container">
             {gifs.length > 0
@@ -30,6 +47,7 @@ export default function GameBoard() {
                       );
                   })
                 : ""}
+            <button onClick={shuffle}>Click</button>
         </div>
     );
 }

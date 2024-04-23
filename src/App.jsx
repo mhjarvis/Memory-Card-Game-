@@ -6,8 +6,6 @@ import GameBoard from "./GameBoard/GameBoard";
 
 function App() {
 
-
-
     return (
         <div className="main-container">
             <ScoreBoard />
