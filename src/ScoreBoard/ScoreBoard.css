@@ -1,0 +1,23 @@
+.scoreboard-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 100%;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 4rem;
+}
+
+.score-container {
+    display: flex;
+    align-items: center;
+
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.high-score {
+    margin: 0 3rem;
+}

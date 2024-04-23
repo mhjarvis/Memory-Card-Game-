@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import "./App.css";
-import ScoreBoard from "./scoreboard-components/ScoreBoard";
+import ScoreBoard from "./ScoreBoard/ScoreBoard";
 
 function App() {
     const key = "mnRGTWhmR1tglJdz7aq3Uc6sHGhbzlXy";
@@ -11,7 +11,7 @@ function App() {
     const [gifs, setGifs] = useState([]);
 
     useEffect(() => {
-        fetch() // add url to start
+        fetch(url) // add url to start
             .then((response) => response.json())
             .then((data) => {
                 setGifs(data.data);
@@ -22,7 +22,7 @@ function App() {
     }, []);
 
     return (
-        <div>
+        <div className="main-container">
             <ScoreBoard />
             {gifs.length > 0
                 ? gifs.map((gif, index) => {
@@ -32,7 +32,7 @@ function App() {
                           </div>
                       );
                   })
-                : "dog"}
+                : ""}
         </div>
     );
 }
