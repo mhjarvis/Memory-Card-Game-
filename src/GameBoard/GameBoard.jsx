@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 
 export default function GameBoard() {
     const key = "mnRGTWhmR1tglJdz7aq3Uc6sHGhbzlXy";
-    const url = `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=the+office&limit=9&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`;
+    const limit = 1;
+    
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=the+office&limit=${limit}&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`;
 
     const [gifs, setGifs] = useState([]);
 
