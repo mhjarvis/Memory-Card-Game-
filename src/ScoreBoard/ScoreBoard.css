@@ -21,3 +21,13 @@
 .high-score {
     margin: 0 3rem;
 }
+
+.images-container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.game-images {
+    margin: 1rem;
+}
