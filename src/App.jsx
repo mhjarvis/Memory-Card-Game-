@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/* eslint-disable no-unused-vars */
+import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+    const key = "mnRGTWhmR1tglJdz7aq3Uc6sHGhbzlXy";
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=the+office&limit=8&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`;
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const [gifs, setGifs] = useState([]);
+    const [finished, setFinished] = useState(false);
+
+    useEffect(() => {
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                setGifs(data.data);
+            });
+        return () => {
+            setGifs([]);
+        };
+    }, []);
+    console.log(gifs);
+
+    return (
+        <div>
+            <h1>Images: </h1>
+
+            {gifs.length > 0
+                ? gifs.map((gif, index) => {
+                      return (
+                          <div key={index}>
+                              <img src={gif.images.original.url} />
+                          </div>
+                      );
+                  })
+                : "dog"}
+
+            {gifs.length > 0 ? console.log(gifs[0].images.original.url) : ""}
+        </div>
+    );
 }
 
-export default App
+export default App;
