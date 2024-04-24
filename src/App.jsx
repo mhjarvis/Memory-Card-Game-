@@ -3,6 +3,7 @@
 import "./App.css";
 import ScoreBoard from "./ScoreBoard/ScoreBoard";
 import GameBoard from "./GameBoard/GameBoard";
+import SearchBox from "./SearchBox/SearchBox";
 import { useState } from "react";
 
 function App() {
@@ -19,13 +20,11 @@ function App() {
     return (
         <div className="main-container">
             <ScoreBoard />
-            <label htmlFor="seach-query">Change Images:</label>
-            <input
-                id="seach-query"
-                value={gifQuery}
-                onChange={handleSetGifQuery}
-            ></input>
-            <button onClick={updateImages}>Search</button>
+            <SearchBox
+                gifQuery={gifQuery}
+                handleSetGifQuery={handleSetGifQuery}
+                updateImages={updateImages}
+            />
             <GameBoard imageTerm={imageTerm} />
         </div>
     );
