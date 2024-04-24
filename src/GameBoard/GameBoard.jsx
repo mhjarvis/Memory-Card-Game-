@@ -1,14 +1,17 @@
+/* eslint-disable react/prop-types */
+
 import "./GameBoard.css";
 import { useEffect, useState } from "react";
 
-export default function GameBoard() {
-    const key = "mnRGTWhmR1tglJdz7aq3Uc6sHGhbzlXy";
-    const limit = 1;
-    
-    const url = `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=the+office&limit=${limit}&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`;
-
+export default function GameBoard({ gifQuery }) {
     const [gifs, setGifs] = useState([]);
 
+    const key = "mnRGTWhmR1tglJdz7aq3Uc6sHGhbzlXy";
+    const limit = 1;
+
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=${gifQuery}&limit=${limit}&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`;
+
+    // Initial api call (reuse during button click)
     useEffect(() => {
         fetch(url) // add url to start
             .then((response) => response.json())
@@ -18,8 +21,9 @@ export default function GameBoard() {
         return () => {
             setGifs([]);
         };
-    }, []);
+    }, [url]);
 
+    // Function that shuffles the images displayed on screen
     function shuffle() {
         let currentIndex = gifs.length;
         let arr = [...gifs];
@@ -33,7 +37,7 @@ export default function GameBoard() {
                 arr[currentIndex],
             ];
         }
-        setGifs([...arr])
+        setGifs([...arr]);
     }
 
     return (

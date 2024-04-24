@@ -6,13 +6,13 @@ import GameBoard from "./GameBoard/GameBoard";
 import { useState } from "react";
 
 function App() {
-    const [gifQuery, setGifQuery] = useState("the+office");
+    const [gifQuery, setGifQuery] = useState("theoffice");
 
-    function updateGifQuery(event) {
+    function handleSetGifQuery(event) {
         setGifQuery(event.target.value);
     }
     function updateImages() {
-        setGifQuery('')
+        setGifQuery("");
     }
 
     return (
@@ -22,10 +22,10 @@ function App() {
             <input
                 id="seach-query"
                 value={gifQuery}
-                onChange={updateGifQuery}
+                onChange={handleSetGifQuery}
             ></input>
             <button onClick={updateImages}>Search</button>
-            <GameBoard />
+            <GameBoard gifQuery={gifQuery} />
         </div>
     );
 }
