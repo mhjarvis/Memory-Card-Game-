@@ -7,12 +7,13 @@ import { useState } from "react";
 
 function App() {
     const [gifQuery, setGifQuery] = useState("theoffice");
+    const [imageTerm, setImageTerm] = useState("theoffice");
 
     function handleSetGifQuery(event) {
         setGifQuery(event.target.value);
     }
     function updateImages() {
-        setGifQuery("");
+        setImageTerm(gifQuery);
     }
 
     return (
@@ -25,7 +26,7 @@ function App() {
                 onChange={handleSetGifQuery}
             ></input>
             <button onClick={updateImages}>Search</button>
-            <GameBoard gifQuery={gifQuery} />
+            <GameBoard imageTerm={imageTerm} />
         </div>
     );
 }

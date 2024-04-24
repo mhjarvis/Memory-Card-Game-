@@ -3,13 +3,13 @@
 import "./GameBoard.css";
 import { useEffect, useState } from "react";
 
-export default function GameBoard({ gifQuery }) {
+export default function GameBoard({ imageTerm }) {
     const [gifs, setGifs] = useState([]);
 
     const key = "mnRGTWhmR1tglJdz7aq3Uc6sHGhbzlXy";
     const limit = 1;
 
-    const url = `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=${gifQuery}&limit=${limit}&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`;
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=${imageTerm}&limit=${limit}&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`;
 
     // Initial api call (reuse during button click)
     useEffect(() => {
