@@ -7,7 +7,7 @@ export default function SearchBox({
     updateImages,
 }) {
     return (
-        <>
+        <div className="search-query-container">
             <label htmlFor="seach-query" className="search-query-label">
                 Change Images:
             </label>
@@ -18,6 +18,6 @@ export default function SearchBox({
                 onChange={handleSetGifQuery}
             ></input>
             <button onClick={updateImages} className="search-query-button">Search</button>
-        </>
+        </div>
     );
 }
