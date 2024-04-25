@@ -7,7 +7,7 @@ export default function GameBoard({ imageTerm }) {
     const [gifs, setGifs] = useState([]);
 
     const key = "mnRGTWhmR1tglJdz7aq3Uc6sHGhbzlXy";
-    const limit = 1;
+    const limit = 6;
 
     const url = `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=${imageTerm}&limit=${limit}&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`;
 
@@ -48,6 +48,7 @@ export default function GameBoard({ imageTerm }) {
                           <div key={index} className="game-images">
                               <img
                                   src={gif.images.fixed_height_downsampled.url}
+                                  onClick={shuffle}
                               />
                           </div>
                       );
