@@ -1,10 +1,12 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
 import "./GameBoard.css";
 import { useEffect, useState } from "react";
 
-export default function GameBoard({ imageTerm }) {
+export default function GameBoard({ imageTerm, testScores }) {
     const [gifs, setGifs] = useState([]);
+    const [used, setUsed] = [];
 
     const key = "mnRGTWhmR1tglJdz7aq3Uc6sHGhbzlXy";
     const limit = 6;
@@ -24,7 +26,8 @@ export default function GameBoard({ imageTerm }) {
     }, [url]);
 
     // Function that shuffles the images displayed on screen
-    function shuffle() {
+    function shuffle(event) {
+        testScores(event);
         let currentIndex = gifs.length;
         let arr = [...gifs];
 
@@ -48,7 +51,7 @@ export default function GameBoard({ imageTerm }) {
                           <div key={index} className="game-images">
                               <img
                                   src={gif.images.fixed_height_downsampled.url}
-                                  onClick={shuffle}
+                                  onClick={() => shuffle(event)}
                               />
                           </div>
                       );
