@@ -1,19 +1,10 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 
 import { useState } from "react";
 import "./ScoreBoard.css";
 
-export default function ScoreBoard() {
-    const [highScore, setHighScore] = useState(0);
-    const [currentScore, setCurrentScore] = useState(0);
-
-    function updateCurrentScore() {
-        setCurrentScore((last) => last + 1);
-    }
-    function updateHighScore() {
-        setHighScore(currentScore);
-    }
-
+export default function ScoreBoard({ highScore, currentScore }) {
     return (
         <div className="scoreboard-container">
             <h1 className="title">MemoryGame</h1>
