@@ -1,8 +1,31 @@
-# React + Vite
+# Project Memory Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Memory Game project was created according to the assignment from The Odin Project, which can be found [here](https://www.theodinproject.com/lessons/node-path-react-new-memory-card).
 
-Currently, two official plugins are available:
+A live preview of the project can be found [here](https://stellar-mermaid-62f8fb.netlify.app/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Overview
+
+The goal of the project was to create a memory game using basic React concepts such as using and creating React `Components` `props`, `state`, and `lifting state up`. This project also focused on using an API and working with the `useEffect` hook. 
+
+## Previews
+
+<img src="src/assets/app-preview.png" />
+## Learning Outcomes
+
+The project helped solidify the following:
+
+-   Creating and setting up a React project.
+-   Structuring the project logically into different components and implementing reusability.
+-   Using buttons to create conditional layouts.
+-   Using `state` to store both objects and arrays of objects via user input. Further, using state to provide live output of user input.
+-   Using `props` to pass down variables and functions for use in various different areas of the application.
+-   Using `useEffect` hook to control rendering and limiting side effects.
+-   Create directory structure for organization.
+
+## Technologies Used
+
+- React
+- HTML / CSS
+- JavaScript
+- Git
