@@ -9,7 +9,7 @@ export default function GameBoard({ imageTerm, updateScores, resetScore }) {
     const [gifs, setGifs] = useState([]);
     const [used, setUsed] = useState([]);
 
-    const key = "JMj1BRvMsWAFmzwPNMHArjXfgBxkmZK0";
+    const key = "QPKhJ9M8D5gOxLFBM0K05fGTXyU2nfbh";
     const limit = 9;
 
     const url = `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=${imageTerm}&limit=${limit}&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`;
