@@ -9,15 +9,9 @@ import { useState } from "react";
 function App() {
     const [gifQuery, setGifQuery] = useState("theoffice");
     const [imageTerm, setImageTerm] = useState("theoffice");
-    const [highScore, setHighScore] = useState(0);
+    const [scores, setScores] = useState({ currentScore: 0, highScore: 0 });
     const [currentScore, setCurrentScore] = useState(0);
 
-    function updateCurrentScore() {
-        setCurrentScore((last) => last + 1);
-    }
-    function updateHighScore() {
-        setHighScore(currentScore);
-    }
     function handleSetGifQuery(event) {
         setGifQuery(event.target.value);
     }
@@ -25,16 +19,28 @@ function App() {
         setImageTerm(gifQuery);
     }
     function updateScores() {
-        console.log('updating scores');
-        setCurrentScore((last) => last + 1)
+        if (scores.currentScore + 1 > scores.highScore) {
+            setScores({
+                currentScore: scores.currentScore + 1,
+                highScore: scores.currentScore + 1,
+            });
+        } else {
+            setScores({
+                currentScore: scores.currentScore + 1,
+                highScore: scores.highScore,
+            });
+        }
     }
     function resetScore() {
-        setCurrentScore(0);
+        setScores({
+            currentScore: 0,
+            highScore: scores.highScore,
+        });
     }
 
     return (
         <div className="main-container">
-            <ScoreBoard highScore={highScore} currentScore={currentScore} />
+            <ScoreBoard highScore={scores.highScore} currentScore={scores.currentScore} />
             <SearchBox
                 gifQuery={gifQuery}
                 handleSetGifQuery={handleSetGifQuery}
