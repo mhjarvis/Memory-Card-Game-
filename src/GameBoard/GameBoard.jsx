@@ -19,6 +19,7 @@ export default function GameBoard({ imageTerm, updateScores, resetScore }) {
             .then((response) => response.json())
             .then((data) => {
                 setGifs(data.data);
+                resetScore()
             });
         return () => {
             setGifs([]);
