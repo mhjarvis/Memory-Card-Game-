@@ -11,6 +11,7 @@ The goal of the project was to create a memory game using basic React concepts s
 ## Previews
 
 <img src="src/assets/app-preview.png" />
+
 ## Learning Outcomes
 
 The project helped solidify the following:
