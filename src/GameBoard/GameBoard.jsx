@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 export default function GameBoard({ imageTerm, testScores }) {
     const [gifs, setGifs] = useState([]);
-    const [used, setUsed] = [1, 2];
+    const [used, setUsed] = useState([]);
 
     const key = "JMj1BRvMsWAFmzwPNMHArjXfgBxkmZK0";
     const limit = 6;
@@ -26,21 +26,13 @@ export default function GameBoard({ imageTerm, testScores }) {
     }, [url]);
 
     function checkedIfUsed(event) {
-        console.log("is used", used[1]);
-        let arr = [...used];
-        arr.push(event.target.currentSrc);
-        setUsed(arr);
-        console.log("used after", used);
-        /*      if (used.includes(event.target.currentSrc)) {console.log('working)}
-
-
-
-if (used.includes(event.target.currentSrc)) {
-            console.log("its already heere!");
+        
+        if (used.includes(event.target.currentSrc)) {
+            console.log("its already here");
         } else {
-            setUsed([...used, event.target.currentSrc]);
-            console.log('Added to used: ', used)
-        } */
+            setUsed((previous) => previous.concat(event.target.currentSrc));
+        }
+        
     }
 
     // Function that shuffles the images displayed on screen
