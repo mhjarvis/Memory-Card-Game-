@@ -9,7 +9,7 @@ export default function GameBoard({ imageTerm, updateScores, resetScore }) {
     const [used, setUsed] = useState([]);
 
     const key = "JMj1BRvMsWAFmzwPNMHArjXfgBxkmZK0";
-    const limit = 6;
+    const limit = 9;
 
     const url = `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=${imageTerm}&limit=${limit}&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`;
 
@@ -67,7 +67,6 @@ export default function GameBoard({ imageTerm, updateScores, resetScore }) {
                       );
                   })
                 : ""}
-            <button onClick={shuffle}>Click</button>
         </div>
     );
 }

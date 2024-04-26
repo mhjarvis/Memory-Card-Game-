@@ -10,7 +10,6 @@ function App() {
     const [gifQuery, setGifQuery] = useState("theoffice");
     const [imageTerm, setImageTerm] = useState("theoffice");
     const [scores, setScores] = useState({ currentScore: 0, highScore: 0 });
-    const [currentScore, setCurrentScore] = useState(0);
 
     function handleSetGifQuery(event) {
         setGifQuery(event.target.value);
