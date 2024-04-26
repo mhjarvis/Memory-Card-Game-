@@ -4,7 +4,7 @@
 import "./GameBoard.css";
 import { useEffect, useState } from "react";
 
-export default function GameBoard({ imageTerm, testScores, resetScore }) {
+export default function GameBoard({ imageTerm, updateScores, resetScore }) {
     const [gifs, setGifs] = useState([]);
     const [used, setUsed] = useState([]);
 
@@ -26,19 +26,18 @@ export default function GameBoard({ imageTerm, testScores, resetScore }) {
     }, [url]);
 
     function checkedIfUsed(event) {
-
         if (used.includes(event.target.currentSrc)) {
-            console.log("its already here");
+            setUsed([]);
+            resetScore();
         } else {
+            shuffle();
             setUsed((previous) => previous.concat(event.target.currentSrc));
+            updateScores()
         }
-        
     }
 
     // Function that shuffles the images displayed on screen
     function shuffle(event) {
-        checkedIfUsed(event);
-        //checkedIfUsed()
         let currentIndex = gifs.length;
         let arr = [...gifs];
 

@@ -24,8 +24,9 @@ function App() {
     function updateImages() {
         setImageTerm(gifQuery);
     }
-    function testScores(event) {
-        console.log(event.target);
+    function updateScores() {
+        console.log('updating scores');
+        setCurrentScore((last) => last + 1)
     }
     function resetScore() {
         setCurrentScore(0);
@@ -41,7 +42,7 @@ function App() {
             />
             <GameBoard
                 imageTerm={imageTerm}
-                testScores={testScores}
+                updateScores={updateScores}
                 resetScore={resetScore}
             />
         </div>
