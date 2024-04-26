@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 
 export default function GameBoard({ imageTerm, testScores }) {
     const [gifs, setGifs] = useState([]);
-    const [used, setUsed] = [];
+    const [used, setUsed] = [1, 2];
 
-    const key = "mnRGTWhmR1tglJdz7aq3Uc6sHGhbzlXy";
+    const key = "JMj1BRvMsWAFmzwPNMHArjXfgBxkmZK0";
     const limit = 6;
 
     const url = `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=${imageTerm}&limit=${limit}&offset=0&rating=pg&lang=en&bundle=messaging_non_clips`;
@@ -25,9 +25,28 @@ export default function GameBoard({ imageTerm, testScores }) {
         };
     }, [url]);
 
+    function checkedIfUsed(event) {
+        console.log("is used", used[1]);
+        let arr = [...used];
+        arr.push(event.target.currentSrc);
+        setUsed(arr);
+        console.log("used after", used);
+        /*      if (used.includes(event.target.currentSrc)) {console.log('working)}
+
+
+
+if (used.includes(event.target.currentSrc)) {
+            console.log("its already heere!");
+        } else {
+            setUsed([...used, event.target.currentSrc]);
+            console.log('Added to used: ', used)
+        } */
+    }
+
     // Function that shuffles the images displayed on screen
     function shuffle(event) {
-        testScores(event);
+        checkedIfUsed(event);
+        //checkedIfUsed()
         let currentIndex = gifs.length;
         let arr = [...gifs];
 
@@ -51,7 +70,7 @@ export default function GameBoard({ imageTerm, testScores }) {
                           <div key={index} className="game-images">
                               <img
                                   src={gif.images.fixed_height_downsampled.url}
-                                  onClick={() => shuffle(event)}
+                                  onClick={() => checkedIfUsed(event)}
                               />
                           </div>
                       );
