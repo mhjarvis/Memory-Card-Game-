@@ -4,7 +4,7 @@
 import "./GameBoard.css";
 import { useEffect, useState } from "react";
 
-export default function GameBoard({ imageTerm, testScores }) {
+export default function GameBoard({ imageTerm, testScores, resetScore }) {
     const [gifs, setGifs] = useState([]);
     const [used, setUsed] = useState([]);
 
@@ -26,7 +26,7 @@ export default function GameBoard({ imageTerm, testScores }) {
     }, [url]);
 
     function checkedIfUsed(event) {
-        
+
         if (used.includes(event.target.currentSrc)) {
             console.log("its already here");
         } else {

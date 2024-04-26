@@ -25,7 +25,10 @@ function App() {
         setImageTerm(gifQuery);
     }
     function testScores(event) {
-        console.log(event.target)
+        console.log(event.target);
+    }
+    function resetScore() {
+        setCurrentScore(0);
     }
 
     return (
@@ -36,7 +39,11 @@ function App() {
                 handleSetGifQuery={handleSetGifQuery}
                 updateImages={updateImages}
             />
-            <GameBoard imageTerm={imageTerm} testScores={testScores} />
+            <GameBoard
+                imageTerm={imageTerm}
+                testScores={testScores}
+                resetScore={resetScore}
+            />
         </div>
     );
 }
